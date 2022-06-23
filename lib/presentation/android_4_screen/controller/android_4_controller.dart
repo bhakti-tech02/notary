@@ -11,8 +11,9 @@ class Android4Controller extends GetxController with StateMixin<dynamic> {
   var taskModel = <TaskModel>[];
 
   @override
-  void onReady() {
+  void onReady() async {
     super.onReady();
+    fetchTaskCollection();
   }
 
   @override
@@ -27,7 +28,7 @@ class Android4Controller extends GetxController with StateMixin<dynamic> {
           .from('task')
           .select()
           .order('created_at', ascending: false)
-          .limit(30)
+          .limit(20)
           .execute();
       ProgressDialogUtils.hideProgressDialog();
       if (response.status == 200) {
@@ -46,14 +47,12 @@ class Android4Controller extends GetxController with StateMixin<dynamic> {
     if (response != null) {
       taskModel = (response as List).map((e) => TaskModel.fromJson(e)).toList();
       if (taskModel != null) {
-        android4ModelObj.value.readsomearticTxt.value =
-            taskModel.taskName!.toString();
-        android4ModelObj.value.iFinishedtodaTxt.value =
-            taskModel.desc!.toString();
+        android4ModelObj.value..value = taskModel.taskName!.toString();
+        android4ModelObj.value..value = taskModel.desc!.toString();
       }
     }
     Fluttertoast.showToast(
-      msg: "Hey! Welcome",
+      msg: "Hey!Welcome to Notary!",
     );
   }
 
@@ -62,7 +61,7 @@ class Android4Controller extends GetxController with StateMixin<dynamic> {
       Get.rawSnackbar(message: err);
     }
     Fluttertoast.showToast(
-      msg: "Something Bad Happened on the server!",
+      msg: "Something bad happened!",
     );
   }
 }

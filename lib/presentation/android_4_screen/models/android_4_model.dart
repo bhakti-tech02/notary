@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
+import 'group7_item_model.dart';
 
 class Android4Model {
-  Rx<String> readsomearticTxt = Rx('Lorem ipsum dolor sit amet');
-
-  Rx<String> iFinishedtodaTxt = Rx('Lorem ipsum dolor sit amet');
+  RxList<Group7ItemModel> group7ItemList = RxList.filled(2, Group7ItemModel());
 }
