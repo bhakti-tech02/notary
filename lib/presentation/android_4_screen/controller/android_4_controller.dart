@@ -1,3 +1,5 @@
+import 'package:notaryyy/presentation/android_4_screen/models/group7_item_model.dart';
+
 import '/core/app_export.dart';
 import 'package:notaryyy/presentation/android_4_screen/models/android_4_model.dart';
 import 'package:supabase/supabase.dart';
@@ -47,8 +49,14 @@ class Android4Controller extends GetxController with StateMixin<dynamic> {
     if (response != null) {
       taskModel = (response as List).map((e) => TaskModel.fromJson(e)).toList();
       if (taskModel != null) {
-        android4ModelObj.value..value = taskModel.taskName!.toString();
-        android4ModelObj.value..value = taskModel.desc!.toString();
+       for (var item in taskModel) {
+        Group7ItemModel model = Group7ItemModel();
+       
+        model.readsomearticTxt.value = item.taskName!;
+         model.iFinishedtodaTxt.value = item.desc !;
+      
+        android4ModelObj.value.group7ItemList.add(model);
+      }
       }
     }
     Fluttertoast.showToast(

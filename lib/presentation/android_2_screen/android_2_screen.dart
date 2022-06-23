@@ -20,7 +20,7 @@ class Android2Screen extends GetWidget<Android2Controller> {
                             BoxDecoration(color: ColorConstant.whiteA700),
                         child: Stack(alignment: Alignment.topLeft, children: [
                           Align(
-                              alignment: Alignment.centerLeft,
+                              alignment: Alignment.topLeft,
                               child: Container(
                                   margin: EdgeInsets.only(
                                       top: getVerticalSize(10.00)),
@@ -47,6 +47,7 @@ class Android2Screen extends GetWidget<Android2Controller> {
                                                     controller: controller
                                                         .titleController,
                                                     decoration: InputDecoration(
+                                                       border: InputBorder.none,
                                                         hintText:
                                                             "lbl_title".tr,
                                                         hintStyle: AppStyle
@@ -79,6 +80,7 @@ class Android2Screen extends GetWidget<Android2Controller> {
                                                     controller: controller
                                                         .descriptionController,
                                                     decoration: InputDecoration(
+                                                       border: InputBorder.none,
                                                         hintText: "lbl_description"
                                                             .tr,
                                                         hintStyle: AppStyle
@@ -171,7 +173,7 @@ class Android2Screen extends GetWidget<Android2Controller> {
                                             },
                                             child: Padding(
                                                 padding: EdgeInsets.only(
-                                                    top: getVerticalSize(8.01),
+                                                    top: getVerticalSize(2.01),
                                                     right:
                                                         getHorizontalSize(0.00),
                                                     bottom:

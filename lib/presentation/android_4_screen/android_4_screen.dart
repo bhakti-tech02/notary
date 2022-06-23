@@ -11,6 +11,24 @@ class Android4Screen extends GetWidget<Android4Controller> {
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
+            appBar: AppBar(
+              elevation: 0,
+              centerTitle: true,
+              backgroundColor: ColorConstant.whiteA700,
+              title: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(
+                          left: getHorizontalSize(15.00),
+                          top: getVerticalSize(20.00),
+                          right: getHorizontalSize(15.00),
+                          bottom: getVerticalSize(14.00)),
+                      child: Text("lbl_notary".tr,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                          style: AppStyle.textstylerobotomedium24
+                              .copyWith(fontSize: getFontSize(24))))),
+            ),
             body: Container(
                 width: size.width,
                 child: SingleChildScrollView(
@@ -19,99 +37,31 @@ class Android4Screen extends GetWidget<Android4Controller> {
                         width: size.width,
                         decoration:
                             BoxDecoration(color: ColorConstant.whiteA700),
-                        child:
-                            Stack(alignment: Alignment.bottomRight, children: [
+                        child: Stack(
+                          children: [
                           Align(
-                              alignment: Alignment.centerLeft,
+                              alignment: Alignment.topCenter,
                               child: Container(
                                   decoration: BoxDecoration(
                                       color: ColorConstant.whiteA700),
-                                  child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                                color: ColorConstant.whiteA700,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                      color: ColorConstant
-                                                          .gray9000c,
-                                                      spreadRadius:
-                                                          getHorizontalSize(
-                                                              2.00),
-                                                      blurRadius:
-                                                          getHorizontalSize(
-                                                              2.00),
-                                                      offset: Offset(0, 5))
-                                                ]),
-                                            child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Align(
-                                                      alignment:
-                                                          Alignment.centerLeft,
-                                                      child: Padding(
-                                                          padding: EdgeInsets.only(
-                                                              left: getHorizontalSize(
-                                                                  15.00),
-                                                              top: getVerticalSize(
-                                                                  20.00),
-                                                              right:
-                                                                  getHorizontalSize(
-                                                                      15.00),
-                                                              bottom:
-                                                                  getVerticalSize(
-                                                                      14.00)),
-                                                          child: Text(
-                                                              "lbl_notary".tr,
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                              textAlign: TextAlign
-                                                                  .left,
-                                                              style: AppStyle
-                                                                  .textstylerobotomedium24
-                                                                  .copyWith(
-                                                                      fontSize:
-                                                                          getFontSize(24)))))
-                                                ])),
-                                        Container(
-                                            height: getVerticalSize(578.00),
-                                            width: size.width,
-                                            child: Obx(() => ListView.builder(
-                                                padding: EdgeInsets.only(
-                                                    top: getVerticalSize(48.00),
-                                                    bottom: getVerticalSize(
-                                                        134.00)),
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                physics:
-                                                    BouncingScrollPhysics(),
-                                                itemCount: controller
-                                                    .android4ModelObj
-                                                    .value
-                                                    .group7ItemList
-                                                    .length,
-                                                itemBuilder: (context, index) {
-                                                  Group7ItemModel model =
-                                                      controller
-                                                              .android4ModelObj
-                                                              .value
-                                                              .group7ItemList[
-                                                          index];
-                                                  return Group7ItemWidget(
-                                                      model);
-                                                })))
-                                      ]))),
+                                  child: Container(
+                                      height: getHorizontalSize(178.00),
+                                      width: size.width,
+                                      child: Obx(() => ListView.builder(
+                                          padding: EdgeInsets.only(
+                                              top: getVerticalSize(48.00),
+                                              bottom: getVerticalSize(134.00)),
+                                          scrollDirection: Axis.vertical,
+                                          physics: BouncingScrollPhysics(),
+                                          itemCount: controller.android4ModelObj
+                                              .value.group7ItemList.length,
+                                          itemBuilder: (context, index) {
+                                            Group7ItemModel model = controller
+                                                .android4ModelObj
+                                                .value
+                                                .group7ItemList[index];
+                                            return Group7ItemWidget(model);
+                                          }))))),
                           Align(
                               alignment: Alignment.bottomRight,
                               child: Container(
@@ -119,9 +69,8 @@ class Android4Screen extends GetWidget<Android4Controller> {
                                   width: getSize(60.00),
                                   margin: EdgeInsets.only(
                                       left: getHorizontalSize(40.00),
-                                      top: getVerticalSize(20.00),
                                       right: getHorizontalSize(40.00),
-                                      bottom: getVerticalSize(20.00)),
+                                      bottom: getVerticalSize(10.00)),
                                   child: FloatingActionButton(
                                       backgroundColor:
                                           ColorConstant.lightBlueA400,

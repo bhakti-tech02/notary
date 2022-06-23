@@ -51,7 +51,7 @@ class Android2Controller extends GetxController with StateMixin<dynamic> {
     if (response != null) {
       taskModel = (response as List).map((e) => TaskModel.fromJson(e)).toList();
     }
-    Get.toNamed(AppRoutes.android4Screen);
+    Get.offNamed(AppRoutes.android4Screen);
   }
 
   void onCreateTaskDocumentError(dynamic err) {
