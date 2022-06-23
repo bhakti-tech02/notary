@@ -7,6 +7,9 @@ class Android1Controller extends GetxController with StateMixin<dynamic> {
   @override
   void onReady() {
     super.onReady();
+    Future.delayed(const Duration(milliseconds: 2000), () {
+      Get.toNamed(AppRoutes.android4Screen);
+    });
   }
 
   @override
